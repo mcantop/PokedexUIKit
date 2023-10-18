@@ -16,7 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         
-        let layout = UICollectionViewFlowLayout()
+        let layout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            layout.minimumInteritemSpacing = AppConstants.spacing
+            layout.minimumLineSpacing = AppConstants.spacing
+            return layout
+        }()
+        
         let navigationController = UINavigationController(
             rootViewController: PokedexController(collectionViewLayout: layout)
         )

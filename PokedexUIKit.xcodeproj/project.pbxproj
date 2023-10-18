@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		528915CE2ADF664B00ADD00C /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528915CD2ADF664B00ADD00C /* Data+Extension.swift */; };
+		528915D02ADF762200ADD00C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528915CF2ADF762200ADD00C /* AppConstants.swift */; };
 		52E25DB82AD10FC600C927B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DB72AD10FC600C927B3 /* AppDelegate.swift */; };
 		52E25DBA2AD10FC600C927B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DB92AD10FC600C927B3 /* SceneDelegate.swift */; };
 		52E25DC12AD10FC700C927B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E25DC02AD10FC700C927B3 /* Assets.xcassets */; };
@@ -18,9 +20,12 @@
 		52E25DD92AD421AA00C927B3 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DD82AD421AA00C927B3 /* UIView+Extension.swift */; };
 		52E25DDB2AD427B600C927B3 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DDA2AD427B600C927B3 /* UIFont+Extension.swift */; };
 		52E25DDD2AD6CD0700C927B3 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DDC2AD6CD0700C927B3 /* Pokemon.swift */; };
+		52E25DDF2AD6CEC000C927B3 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DDE2AD6CEC000C927B3 /* Service.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		528915CD2ADF664B00ADD00C /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		528915CF2ADF762200ADD00C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		52E25DB42AD10FC600C927B3 /* PokedexUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E25DB72AD10FC600C927B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E25DB92AD10FC600C927B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +39,7 @@
 		52E25DD82AD421AA00C927B3 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		52E25DDA2AD427B600C927B3 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		52E25DDC2AD6CD0700C927B3 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		52E25DDE2AD6CEC000C927B3 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		52E25DD02AD1140100C927B3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				52E25DDE2AD6CEC000C927B3 /* Service.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 				52E25DD22AD1141500C927B3 /* UIColor+Extension.swift */,
 				52E25DD82AD421AA00C927B3 /* UIView+Extension.swift */,
 				52E25DDA2AD427B600C927B3 /* UIFont+Extension.swift */,
+				528915CD2ADF664B00ADD00C /* Data+Extension.swift */,
+				528915CF2ADF762200ADD00C /* AppConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -199,6 +208,9 @@
 				52E25DBA2AD10FC600C927B3 /* SceneDelegate.swift in Sources */,
 				52E25DDD2AD6CD0700C927B3 /* Pokemon.swift in Sources */,
 				52E25DD32AD1141500C927B3 /* UIColor+Extension.swift in Sources */,
+				528915D02ADF762200ADD00C /* AppConstants.swift in Sources */,
+				52E25DDF2AD6CEC000C927B3 /* Service.swift in Sources */,
+				528915CE2ADF664B00ADD00C /* Data+Extension.swift in Sources */,
 				52E25DDB2AD427B600C927B3 /* UIFont+Extension.swift in Sources */,
 				52E25DD72AD119B100C927B3 /* Reusable.swift in Sources */,
 			);
