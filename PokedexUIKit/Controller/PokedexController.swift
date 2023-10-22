@@ -20,14 +20,17 @@ private enum Constants {
 
 final class PokedexController: UICollectionViewController {
     // MARK: - Properties
-    var pokemon = [Pokemon]()
-    
     private let service = Service.shared
+    private let searchBar = UISearchBar()
+    
+    private var pokemon = [Pokemon]()
+    private var filteredPokemon = [Pokemon]()
+    private var inSearchMode = false
     
     private lazy var longPressView: LongPressView = {
         let view = LongPressView()
         view.delegate = self
-        view.backgroundColor = backgroundColor
+        view.backgroundColor = .backgroundColor
         view.applyRoundedCorners()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -41,11 +44,6 @@ final class PokedexController: UICollectionViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-        
-    /// Needed to set a correct collection cell color before cells appear
-    private var backgroundColor: UIColor {
-        return UIColor { $0.userInterfaceStyle == .light ? .white : .black }
-    }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -58,8 +56,8 @@ final class PokedexController: UICollectionViewController {
     }
     
     // MARK: - Selectors
-    @objc private func toggleSearchBar() {
-        print("[DEBUG] Toggle search bar")
+    @objc private func presentSearchBar() {
+        setupSearchBar()
     }
     
     @objc private func handleDismissal() {
@@ -77,19 +75,35 @@ private extension PokedexController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.title = "Pokedex"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .search,
-            target: self,
-            action: #selector(toggleSearchBar)
-        )
-        navigationItem.rightBarButtonItem?.tintColor = .label
+        
+        setupSearchButton()
     }
     
     func setupUI() {
-        view.backgroundColor = backgroundColor
+        view.backgroundColor = .backgroundColor
         
         collectionView.register(PokedexCell.self, forCellWithReuseIdentifier: PokedexCell.reuseIdentifier)
         collectionView.layer.opacity = Constants.Appearance.hidden
+    }
+    
+    func setupSearchBar() {
+        searchBar.sizeToFit()
+        searchBar.showsCancelButton = true
+        searchBar.tintColor = .foregroundColor
+        searchBar.delegate = self
+        searchBar.becomeFirstResponder()
+        
+        navigationItem.rightBarButtonItem = nil
+        navigationItem.titleView = searchBar
+    }
+    
+    func setupSearchButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(presentSearchBar)
+        )
+        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     
     func fetchPokemon() {
@@ -132,14 +146,41 @@ private extension PokedexController {
 // MARK: - CollectionView API
 extension PokedexController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemon.count
+        return inSearchMode ? filteredPokemon.count : pokemon.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PokedexCell.reuseIdentifier, for: indexPath) as! PokedexCell
-        cell.pokemon = pokemon[indexPath.row]
+        
+        cell.pokemon = inSearchMode
+        ? filteredPokemon[indexPath.row]
+        : pokemon[indexPath.row]
+        
         cell.delegate = self
         return cell
+    }
+}
+
+// MARK: - UISearchBarDelegate
+extension PokedexController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        navigationItem.titleView = nil
+        setupSearchButton()
+        inSearchMode = false
+        searchBar.text = ""
+        collectionView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchText == "" {
+            inSearchMode = false
+            view.endEditing(true)
+        } else {
+            inSearchMode = true
+            filteredPokemon = pokemon.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+        
+        collectionView.reloadData()
     }
 }
 

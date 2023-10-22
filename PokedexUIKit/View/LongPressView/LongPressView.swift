@@ -36,10 +36,6 @@ final class LongPressView: UIView {
     
     private let padding = AppConstants.padding
     
-    private var foregroundColor: UIColor {
-        return UIColor { $0.userInterfaceStyle == .light ? .black : .white }
-    }
-    
     private lazy var headerContainer: UIView = {
         let view = UIView()
         view.addSubview(nameLabel)
@@ -115,13 +111,13 @@ final class LongPressView: UIView {
         
         var configuration = UIButton.Configuration.filled()
         configuration.baseBackgroundColor = Kirari.blue
-        configuration.baseForegroundColor = foregroundColor
+        configuration.baseForegroundColor = .foregroundColor
         configuration.imagePadding = AppConstants.padding / 2
         
         button.setImage(UIImage(systemName: "info.circle"), for: .normal)
         button.setTitle(Constants.buttonText, for: .normal)
         button.titleLabel?.font = .set(size: .headline, weight: .bold)
-        button.tintColor = foregroundColor
+        button.tintColor = .foregroundColor
         button.addTarget(self, action: #selector(handleViewMoreInfo), for: .touchUpInside)
         button.backgroundColor = Kirari.blue
         button.layer.cornerRadius = 5

@@ -22,4 +22,12 @@ extension UIColor {
     static func mainPink() -> UIColor {
         return rgb(red: 221, green: 94, blue: 86)
     }
+    
+    static var foregroundColor: UIColor {
+        return UIColor { $0.userInterfaceStyle == .light ? .black : .white }
+    }
+    
+    static var backgroundColor: UIColor {
+        return UIColor { $0.userInterfaceStyle == .light ? .white : .black }
+    }
 }
