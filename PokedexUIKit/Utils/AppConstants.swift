@@ -8,5 +8,5 @@
 import Foundation
 
 enum AppConstants {
-    static let spacing = 16.0
+    static let padding = 16.0
 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		528915CE2ADF664B00ADD00C /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528915CD2ADF664B00ADD00C /* Data+Extension.swift */; };
 		528915D02ADF762200ADD00C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528915CF2ADF762200ADD00C /* AppConstants.swift */; };
+		528915D22ADFA06100ADD00C /* LongPressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528915D12ADFA06100ADD00C /* LongPressView.swift */; };
+		52CDD92B2AE54917007E3AA1 /* InfoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD92A2AE54917007E3AA1 /* InfoSectionView.swift */; };
+		52CDD92D2AE55C11007E3AA1 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52CDD92C2AE55C11007E3AA1 /* Int+Extension.swift */; };
 		52E25DB82AD10FC600C927B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DB72AD10FC600C927B3 /* AppDelegate.swift */; };
 		52E25DBA2AD10FC600C927B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52E25DB92AD10FC600C927B3 /* SceneDelegate.swift */; };
 		52E25DC12AD10FC700C927B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52E25DC02AD10FC700C927B3 /* Assets.xcassets */; };
@@ -26,6 +29,9 @@
 /* Begin PBXFileReference section */
 		528915CD2ADF664B00ADD00C /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		528915CF2ADF762200ADD00C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		528915D12ADFA06100ADD00C /* LongPressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressView.swift; sourceTree = "<group>"; };
+		52CDD92A2AE54917007E3AA1 /* InfoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSectionView.swift; sourceTree = "<group>"; };
+		52CDD92C2AE55C11007E3AA1 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		52E25DB42AD10FC600C927B3 /* PokedexUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokedexUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52E25DB72AD10FC600C927B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52E25DB92AD10FC600C927B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +59,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52CDD9292AE54449007E3AA1 /* LongPressView */ = {
+			isa = PBXGroup;
+			children = (
+				528915D12ADFA06100ADD00C /* LongPressView.swift */,
+				52CDD92A2AE54917007E3AA1 /* InfoSectionView.swift */,
+			);
+			path = LongPressView;
+			sourceTree = "<group>";
+		};
 		52E25DAB2AD10FC600C927B3 = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				52E25DD42AD1192A00C927B3 /* PokedexCell.swift */,
+				52CDD9292AE54449007E3AA1 /* LongPressView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -127,6 +143,7 @@
 				52E25DDA2AD427B600C927B3 /* UIFont+Extension.swift */,
 				528915CD2ADF664B00ADD00C /* Data+Extension.swift */,
 				528915CF2ADF762200ADD00C /* AppConstants.swift */,
+				52CDD92C2AE55C11007E3AA1 /* Int+Extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -201,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CDD92D2AE55C11007E3AA1 /* Int+Extension.swift in Sources */,
 				52E25DB82AD10FC600C927B3 /* AppDelegate.swift in Sources */,
 				52E25DD92AD421AA00C927B3 /* UIView+Extension.swift in Sources */,
 				52E25DD52AD1192A00C927B3 /* PokedexCell.swift in Sources */,
@@ -211,7 +229,9 @@
 				528915D02ADF762200ADD00C /* AppConstants.swift in Sources */,
 				52E25DDF2AD6CEC000C927B3 /* Service.swift in Sources */,
 				528915CE2ADF664B00ADD00C /* Data+Extension.swift in Sources */,
+				528915D22ADFA06100ADD00C /* LongPressView.swift in Sources */,
 				52E25DDB2AD427B600C927B3 /* UIFont+Extension.swift in Sources */,
+				52CDD92B2AE54917007E3AA1 /* InfoSectionView.swift in Sources */,
 				52E25DD72AD119B100C927B3 /* Reusable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIView {
-    func roundedCorners(_ value: CGFloat = 10) {
+    func applyRoundedCorners(_ value: CGFloat = 10) {
         layer.cornerRadius = value
     }
 }

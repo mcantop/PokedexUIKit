@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol PokedexCellDeleagte: AnyObject {
+    func presentLongPressView(_ pokemon: Pokemon)
+}
+
 private enum Constants {
     static let labelHeight = 32.0
 }
 
 final class PokedexCell: UICollectionViewCell, Reusable {
     // MARK: - Properties
+    weak var delegate: PokedexCellDeleagte?
+    
     var pokemon: Pokemon? {
         didSet {
             nameLabel.text = pokemon?.name.capitalized
@@ -63,17 +69,27 @@ final class PokedexCell: UICollectionViewCell, Reusable {
         
         setupUI()
         setupConstraints()
+        setupLongPressGesture()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Selectors
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            guard let pokemon else { return }
+            
+            delegate?.presentLongPressView(pokemon)
+        }
     }
 }
 
 // MARK: - Private API
 private extension PokedexCell {
     func setupUI() {
-        roundedCorners()
+        applyRoundedCorners()
         
         clipsToBounds = true /// Fixes not working corner radius
         
@@ -82,7 +98,7 @@ private extension PokedexCell {
     }
     
     func setupConstraints() {
-        let spacing = AppConstants.spacing / 2
+        let spacing = AppConstants.padding / 2
         
         NSLayoutConstraint.activate([
             imageContainer.topAnchor.constraint(equalTo: topAnchor),
@@ -100,5 +116,10 @@ private extension PokedexCell {
             nameContainer.heightAnchor.constraint(equalToConstant: Constants.labelHeight),
             nameContainer.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    func setupLongPressGesture() {
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        addGestureRecognizer(longPressGestureRecognizer)
     }
 }

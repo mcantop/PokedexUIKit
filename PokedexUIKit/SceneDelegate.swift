@@ -18,8 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let layout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
-            layout.minimumInteritemSpacing = AppConstants.spacing
-            layout.minimumLineSpacing = AppConstants.spacing
+            layout.minimumInteritemSpacing = AppConstants.padding
+            layout.minimumLineSpacing = AppConstants.padding
             return layout
         }()
         
